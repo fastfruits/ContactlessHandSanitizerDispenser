@@ -1,41 +1,41 @@
 #include <Servo.h>
-#include <SimpleUltraSonic.h>
+#include <SimpleUltrasonic.h>
 
 Servo servo1;
-SimpleUltrasonic sonicSensor(9,10);
+SimpleUltrasonic sonicSensor(24,26);
 
 void setup(){
-  Serial.begin(9600)
-  pinMode(9, OUTPUT);
-  pinMode(10, OUTPUT);
-  pinMode(11, OUTPUT);
-  digitalWrite(9, HIGH);
-  digitalWrite(10, HIGH);
-  digitalWrite(11, HIGH);
+  Serial.begin(9600);
+  digitalWrite(22, HIGH);
+  digitalWrite(24, HIGH);
+  digitalWrite(26, HIGH);
 
-  servo1.attach(11);
-  servo1.write(180);
+  servo1.attach(22);
+  servo1.write(90);
   sonicSensor.begin();
 }
 
 void loop(){
-  float distance = sonicSensor.measureDistanceInCM()
-  Serial.print("Distance: " + distance + " cm");
+  float distance = sonicSensor.measureDistanceInCM();
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.print(" cm");
+  Serial.println();
   delay(500);
   if(distance < 20.0){
-    delay(500)
+    delay(500);
     if(distance < 5.0){
       servo1.write(0);
-      delay(250);
+      delay(1250);
       servo1.write(180);
-      delay(250);
+      delay(1250);
       servo1.write(0);
-      delay(250);
+      delay(1250);
       servo1.write(180);
     }
     else if(distance < 10.0){
       servo1.write(0);
-      delay(250);
+      delay(1250);
       servo1.write(180);
     }
   }
