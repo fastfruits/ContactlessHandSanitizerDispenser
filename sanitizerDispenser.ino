@@ -22,9 +22,9 @@ void loop(){
   Serial.print(" cm");
   Serial.println();
   delay(500);
-  if(distance < 20.0){
+  if(distance < 10.0 && distance != -1){
     delay(500);
-    if(distance < 10.0){
+    if(distance < 5.0){
       servo1.write(90);
       delay(1000);
       servo1.write(180);
