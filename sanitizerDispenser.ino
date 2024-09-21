@@ -24,19 +24,20 @@ void loop(){
   delay(500);
   if(distance < 20.0){
     delay(500);
-    if(distance < 5.0){
-      servo1.write(0);
-      delay(1250);
+    if(distance < 10.0){
+      servo1.write(90);
+      delay(1000);
       servo1.write(180);
-      delay(1250);
-      servo1.write(0);
-      delay(1250);
-      servo1.write(180);
-    }
-    else if(distance < 10.0){
-      servo1.write(0);
-      delay(1250);
+      delay(1000);
+      servo1.write(90);
+      delay(1000);
       servo1.write(180);
     }
+    else{
+      servo1.write(90);
+      delay(1000);
+      servo1.write(180);
+    }
+    delay(2000);
   }
 }
