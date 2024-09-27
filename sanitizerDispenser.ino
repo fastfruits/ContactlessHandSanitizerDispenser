@@ -23,7 +23,7 @@ void loop(){
   Serial.println();
   delay(500);
   if(distance < 10.0 && distance != -1){
-    delay(500);
+    delay(750);
     if(distance < 5.0){
       servo1.write(90);
       delay(1000);
